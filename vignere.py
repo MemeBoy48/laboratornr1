@@ -20,7 +20,13 @@ while True:
     if len(key) < 7:
         print("Cheia prea scurta")
         continue
+    if any(c not in alfabet for c in key):
+        print("Cheia contine caractere invalide")
+        continue
     msg = input("Mesaj: ").replace(" ", "").upper()
+    if any(c not in alfabet for c in msg):
+        print("Mesajul contine caractere invalide")
+        continue
     if op == "c":
         print("Criptat:", encrypt(msg, key))
     elif op == "d":
